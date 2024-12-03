@@ -1,37 +1,59 @@
 Testing machine: ﻿Contains 'b' Machine
-Input: aaa
+Input: aaaaa
 Result: reject
-Transitions: 5
-Nondeterminism: 0.83
+Depth of Tree: 0
+Total Transitions: 7
+Nondeterminism: 0.88
+String rejected in 0 transitions (max depth explored).
 
 Testing machine: ﻿Contains 'b' Machine
 Input: b
 Result: accept
-Transitions: 1
+Depth of Tree: 1
+Total Transitions: 1
 Nondeterminism: 1.00
+String accepted in 1 transitions on the accepting path.
 Acceptance Path:
  | q1 | b
 b | qaccept | _
 
 Testing machine: ﻿Contains 'b' Machine
-Input: aabaa
+Input: aabca
 Result: accept
-Transitions: 3
+Depth of Tree: 3
+Total Transitions: 3
 Nondeterminism: 1.00
+String accepted in 3 transitions on the accepting path.
 Acceptance Path:
- | q1 | aabaa
-a | q1 | abaa
-aa | q1 | baa
-aab | qaccept | aa
+ | q1 | aabca
+a | q1 | abca
+aa | q1 | bca
+aab | qaccept | ca
 
 Testing machine: ﻿Contains 'b' Machine
 Input: a
 Result: reject
-Transitions: 3
+Depth of Tree: 0
+Total Transitions: 3
 Nondeterminism: 0.75
+String rejected in 0 transitions (max depth explored).
 
 Testing machine: ﻿Contains 'b' Machine
 Input: 
 Result: reject
-Transitions: 2
+Depth of Tree: 0
+Total Transitions: 2
 Nondeterminism: 0.67
+String rejected in 0 transitions (max depth explored).
+
+Testing machine: ﻿Contains 'b' Machine
+Input: abcc
+Result: accept
+Depth of Tree: 2
+Total Transitions: 2
+Nondeterminism: 1.00
+String accepted in 2 transitions on the accepting path.
+Acceptance Path:
+ | q1 | abcc
+a | q1 | bcc
+ab | qaccept | cc
