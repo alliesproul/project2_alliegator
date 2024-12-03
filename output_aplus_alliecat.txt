@@ -1,32 +1,41 @@
-Testing machine: ﻿a plus
-Input: aaa
+Input: aaaaa
 Result: accept
-Transitions: 7
-Nondeterminism: 1.60
+Depth of Tree: 6
+Total Transitions: 11
+Nondeterminism: 1.71
+String accepted in 6 transitions on the accepting path.
 Acceptance Path:
- | q1 | aaa
-a | q1 | aa
-aa | q1 | a
-aaa | q2 | _
-aa | q3 | a__
+ | q1 | aaaaa
+a | q1 | aaaa
+aa | q1 | aaa
+aaa | q1 | aa
+aaaa | q1 | a
+aaaaa | q2 | _
+aaaa | q3 | a__
 
 Testing machine: ﻿a plus
 Input: b
 Result: reject
-Transitions: 1
+Depth of Tree: 0
+Total Transitions: 1
 Nondeterminism: 0.50
+String rejected in 0 transitions (max depth explored).
 
 Testing machine: ﻿a plus
-Input: aabaa
+Input: aabca
 Result: reject
-Transitions: 5
+Depth of Tree: 0
+Total Transitions: 5
 Nondeterminism: 1.25
+String rejected in 0 transitions (max depth explored).
 
 Testing machine: ﻿a plus
 Input: a
 Result: accept
-Transitions: 3
+Depth of Tree: 2
+Total Transitions: 3
 Nondeterminism: 1.33
+String accepted in 2 transitions on the accepting path.
 Acceptance Path:
  | q1 | a
 a | q2 | _
@@ -35,5 +44,15 @@ a | q2 | _
 Testing machine: ﻿a plus
 Input: 
 Result: reject
-Transitions: 1
+Depth of Tree: 0
+Total Transitions: 1
 Nondeterminism: 0.50
+String rejected in 0 transitions (max depth explored).
+
+Testing machine: ﻿a plus
+Input: abcc
+Result: reject
+Depth of Tree: 0
+Total Transitions: 3
+Nondeterminism: 1.00
+String rejected in 0 transitions (max depth explored).
