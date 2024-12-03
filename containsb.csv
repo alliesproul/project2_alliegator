@@ -1,0 +1,10 @@
+﻿Contains 'b' Machine
+"q1,qaccept,qreject"
+"a,b"
+"a,b,_"
+q1
+qaccept
+qreject
+"q1,a,q1,a,R"
+"q1,b,qaccept,b,R"
+"q1,_,qreject,_,R"
