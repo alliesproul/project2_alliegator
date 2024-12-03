@@ -1,20 +1,10 @@
 Testing machine: ﻿abc star
-Input: aaa
-Result: accept
-Transitions: 4
-Nondeterminism: 1.00
-Acceptance Path:
- | q0 | aaa
-a | q0 | aa
-aa | q0 | a
-aaa | q0 | _
-aaa_ | qaccept | _
-
-Testing machine: ﻿abc star
 Input: b
 Result: accept
-Transitions: 2
+Depth of Tree: 2
+Total Transitions: 2
 Nondeterminism: 1.00
+String accepted in 2 transitions on the accepting path.
 Acceptance Path:
  | q0 | b
 b | q1 | _
@@ -23,14 +13,18 @@ b_ | qaccept | _
 Testing machine: ﻿abc star
 Input: aabca
 Result: reject
-Transitions: 6
+Depth of Tree: 0
+Total Transitions: 6
 Nondeterminism: 0.86
+String rejected in 0 transitions (max depth explored).
 
 Testing machine: ﻿abc star
 Input: a
 Result: accept
-Transitions: 2
+Depth of Tree: 2
+Total Transitions: 2
 Nondeterminism: 1.00
+String accepted in 2 transitions on the accepting path.
 Acceptance Path:
  | q0 | a
 a | q0 | _
@@ -39,8 +33,10 @@ a_ | qaccept | _
 Testing machine: ﻿abc star
 Input: 
 Result: accept
-Transitions: 1
+Depth of Tree: 1
+Total Transitions: 1
 Nondeterminism: 1.00
+String accepted in 1 transitions on the accepting path.
 Acceptance Path:
  | q0 | 
 _ | qaccept | _
@@ -48,8 +44,10 @@ _ | qaccept | _
 Testing machine: ﻿abc star
 Input: abcc
 Result: accept
-Transitions: 5
+Depth of Tree: 5
+Total Transitions: 5
 Nondeterminism: 1.00
+String accepted in 5 transitions on the accepting path.
 Acceptance Path:
  | q0 | abcc
 a | q0 | bcc
