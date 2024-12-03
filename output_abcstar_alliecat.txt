@@ -1,57 +1,40 @@
-Testing machine: ﻿abc star
-Input: b
-Result: accept
-Depth of Tree: 2
-Total Transitions: 2
-Nondeterminism: 1.00
-String accepted in 2 transitions on the accepting path.
-Acceptance Path:
- | q0 | b
-b | q1 | _
-b_ | qaccept | _
+Simulation Results:
 
-Testing machine: ﻿abc star
-Input: aabca
-Result: reject
-Depth of Tree: 0
-Total Transitions: 6
-Nondeterminism: 0.86
-String rejected in 0 transitions (max depth explored).
-
-Testing machine: ﻿abc star
-Input: a
-Result: accept
-Depth of Tree: 2
-Total Transitions: 2
-Nondeterminism: 1.00
-String accepted in 2 transitions on the accepting path.
-Acceptance Path:
- | q0 | a
-a | q0 | _
-a_ | qaccept | _
-
-Testing machine: ﻿abc star
-Input: 
-Result: accept
-Depth of Tree: 1
-Total Transitions: 1
-Nondeterminism: 1.00
-String accepted in 1 transitions on the accepting path.
-Acceptance Path:
- | q0 | 
-_ | qaccept | _
-
-Testing machine: ﻿abc star
-Input: abcc
-Result: accept
-Depth of Tree: 5
-Total Transitions: 5
-Nondeterminism: 1.00
-String accepted in 5 transitions on the accepting path.
-Acceptance Path:
- | q0 | abcc
-a | q0 | bcc
-ab | q1 | cc
-abc | q2 | c
-abcc | q2 | _
-abcc_ | qaccept | _
++----------------+--------------+----------+---------+------------------+------------------+-----------------------------+------------------------------------+
+| Machine Name   | String       | Result   |   Depth |   Configurations |   Nondeterminism | Acceptance Path             | Execution Summary                  |
++================+==============+==========+=========+==================+==================+=============================+====================================+
+| ﻿abc star       | abc          | accept   |       4 |                4 |             1    | | q0 | abc                  | String accepted in 4               |
+|                |              |          |         |                  |                  | a | q0 | bc                 | transitions on the accepting path. |
+|                |              |          |         |                  |                  | ab | q1 | c                 |                                    |
+|                |              |          |         |                  |                  | abc | q2 | _                |                                    |
+|                |              |          |         |                  |                  | abc_ | qaccept | _          |                                    |
++----------------+--------------+----------+---------+------------------+------------------+-----------------------------+------------------------------------+
+| ﻿abc star       | abca         | reject   |       0 |                5 |             0.83 | None                        | String rejected in 0               |
+|                |              |          |         |                  |                  |                             | transitions (max depth explored).  |
++----------------+--------------+----------+---------+------------------+------------------+-----------------------------+------------------------------------+
+| ﻿abc star       | a            | accept   |       2 |                2 |             1    | | q0 | a                    | String accepted in 2               |
+|                |              |          |         |                  |                  | a | q0 | _                  | transitions on the accepting path. |
+|                |              |          |         |                  |                  | a_ | qaccept | _            |                                    |
++----------------+--------------+----------+---------+------------------+------------------+-----------------------------+------------------------------------+
+| ﻿abc star       | b            | accept   |       2 |                2 |             1    | | q0 | b                    | String accepted in 2               |
+|                |              |          |         |                  |                  | b | q1 | _                  | transitions on the accepting path. |
+|                |              |          |         |                  |                  | b_ | qaccept | _            |                                    |
++----------------+--------------+----------+---------+------------------+------------------+-----------------------------+------------------------------------+
+| ﻿abc star       | c            | reject   |       0 |                2 |             0.67 | None                        | String rejected in 0               |
+|                |              |          |         |                  |                  |                             | transitions (max depth explored).  |
++----------------+--------------+----------+---------+------------------+------------------+-----------------------------+------------------------------------+
+| ﻿abc star       | aaaabbbbcccc | accept   |      13 |               13 |             1    | | q0 | aaaabbbbcccc         | String accepted in 13              |
+|                |              |          |         |                  |                  | a | q0 | aaabbbbcccc        | transitions on the accepting path. |
+|                |              |          |         |                  |                  | aa | q0 | aabbbbcccc        |                                    |
+|                |              |          |         |                  |                  | aaa | q0 | abbbbcccc        |                                    |
+|                |              |          |         |                  |                  | aaaa | q0 | bbbbcccc        |                                    |
+|                |              |          |         |                  |                  | aaaab | q1 | bbbcccc        |                                    |
+|                |              |          |         |                  |                  | aaaabb | q1 | bbcccc        |                                    |
+|                |              |          |         |                  |                  | aaaabbb | q1 | bcccc        |                                    |
+|                |              |          |         |                  |                  | aaaabbbb | q1 | cccc        |                                    |
+|                |              |          |         |                  |                  | aaaabbbbc | q2 | ccc        |                                    |
+|                |              |          |         |                  |                  | aaaabbbbcc | q2 | cc        |                                    |
+|                |              |          |         |                  |                  | aaaabbbbccc | q2 | c        |                                    |
+|                |              |          |         |                  |                  | aaaabbbbcccc | q2 | _       |                                    |
+|                |              |          |         |                  |                  | aaaabbbbcccc_ | qaccept | _ |                                    |
++----------------+--------------+----------+---------+------------------+------------------+-----------------------------+------------------------------------+
