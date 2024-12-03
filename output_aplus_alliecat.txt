@@ -1,0 +1,39 @@
+Testing machine: ﻿a plus
+Input: aaa
+Result: accept
+Transitions: 7
+Nondeterminism: 1.60
+Acceptance Path:
+ | q1 | aaa
+a | q1 | aa
+aa | q1 | a
+aaa | q2 | _
+aa | q3 | a__
+
+Testing machine: ﻿a plus
+Input: b
+Result: reject
+Transitions: 1
+Nondeterminism: 0.50
+
+Testing machine: ﻿a plus
+Input: aabaa
+Result: reject
+Transitions: 5
+Nondeterminism: 1.25
+
+Testing machine: ﻿a plus
+Input: a
+Result: accept
+Transitions: 3
+Nondeterminism: 1.33
+Acceptance Path:
+ | q1 | a
+a | q2 | _
+ | q3 | a__
+
+Testing machine: ﻿a plus
+Input: 
+Result: reject
+Transitions: 1
+Nondeterminism: 0.50
