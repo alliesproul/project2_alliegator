@@ -1,0 +1,59 @@
+Testing machine: ﻿abc star
+Input: aaa
+Result: accept
+Transitions: 4
+Nondeterminism: 1.00
+Acceptance Path:
+ | q0 | aaa
+a | q0 | aa
+aa | q0 | a
+aaa | q0 | _
+aaa_ | qaccept | _
+
+Testing machine: ﻿abc star
+Input: b
+Result: accept
+Transitions: 2
+Nondeterminism: 1.00
+Acceptance Path:
+ | q0 | b
+b | q1 | _
+b_ | qaccept | _
+
+Testing machine: ﻿abc star
+Input: aabca
+Result: reject
+Transitions: 6
+Nondeterminism: 0.86
+
+Testing machine: ﻿abc star
+Input: a
+Result: accept
+Transitions: 2
+Nondeterminism: 1.00
+Acceptance Path:
+ | q0 | a
+a | q0 | _
+a_ | qaccept | _
+
+Testing machine: ﻿abc star
+Input: 
+Result: accept
+Transitions: 1
+Nondeterminism: 1.00
+Acceptance Path:
+ | q0 | 
+_ | qaccept | _
+
+Testing machine: ﻿abc star
+Input: abcc
+Result: accept
+Transitions: 5
+Nondeterminism: 1.00
+Acceptance Path:
+ | q0 | abcc
+a | q0 | bcc
+ab | q1 | cc
+abc | q2 | c
+abcc | q2 | _
+abcc_ | qaccept | _
