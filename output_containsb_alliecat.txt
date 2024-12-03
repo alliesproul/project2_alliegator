@@ -1,0 +1,37 @@
+Testing machine: ﻿Contains 'b' Machine
+Input: aaa
+Result: reject
+Transitions: 5
+Nondeterminism: 0.83
+
+Testing machine: ﻿Contains 'b' Machine
+Input: b
+Result: accept
+Transitions: 1
+Nondeterminism: 1.00
+Acceptance Path:
+ | q1 | b
+b | qaccept | _
+
+Testing machine: ﻿Contains 'b' Machine
+Input: aabaa
+Result: accept
+Transitions: 3
+Nondeterminism: 1.00
+Acceptance Path:
+ | q1 | aabaa
+a | q1 | abaa
+aa | q1 | baa
+aab | qaccept | aa
+
+Testing machine: ﻿Contains 'b' Machine
+Input: a
+Result: reject
+Transitions: 3
+Nondeterminism: 0.75
+
+Testing machine: ﻿Contains 'b' Machine
+Input: 
+Result: reject
+Transitions: 2
+Nondeterminism: 0.67
