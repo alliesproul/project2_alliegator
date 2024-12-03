@@ -1,65 +1,38 @@
-Testing machine: ﻿a plus
-Input: aaaaaaaaaaa
-Result: accept
-Depth of Tree: 12
-Total Transitions: 23
-Nondeterminism: 1.85
-String accepted in 12 transitions on the accepting path.
-Acceptance Path:
- | q1 | aaaaaaaaaaa
-a | q1 | aaaaaaaaaa
-aa | q1 | aaaaaaaaa
-aaa | q1 | aaaaaaaa
-aaaa | q1 | aaaaaaa
-aaaaa | q1 | aaaaaa
-aaaaaa | q1 | aaaaa
-aaaaaaa | q1 | aaaa
-aaaaaaaa | q1 | aaa
-aaaaaaaaa | q1 | aa
-aaaaaaaaaa | q1 | a
-aaaaaaaaaaa | q2 | _
-aaaaaaaaaa | q3 | a__
+Simulation Results:
 
-Testing machine: ﻿a plus
-Input: b
-Result: reject
-Depth of Tree: 0
-Total Transitions: 1
-Nondeterminism: 0.50
-String rejected in 0 transitions (max depth explored).
-
-Testing machine: ﻿a plus
-Input: aabca
-Result: reject
-Depth of Tree: 0
-Total Transitions: 5
-Nondeterminism: 1.25
-String rejected in 0 transitions (max depth explored).
-
-Testing machine: ﻿a plus
-Input: a
-Result: accept
-Depth of Tree: 2
-Total Transitions: 3
-Nondeterminism: 1.33
-String accepted in 2 transitions on the accepting path.
-Acceptance Path:
- | q1 | a
-a | q2 | _
- | q3 | a__
-
-Testing machine: ﻿a plus
-Input: 
-Result: reject
-Depth of Tree: 0
-Total Transitions: 1
-Nondeterminism: 0.50
-String rejected in 0 transitions (max depth explored).
-
-Testing machine: ﻿a plus
-Input: abcc
-Result: reject
-Depth of Tree: 0
-Total Transitions: 3
-Nondeterminism: 1.00
-String rejected in 0 transitions (max depth explored).
++----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
+| Machine Name   | String       | Result   |   Depth |   Configurations |   Nondeterminism | Acceptance Path        | Execution Summary                  |
++================+==============+==========+=========+==================+==================+========================+====================================+
+| ﻿a plus         | aaaaa        | accept   |       6 |               11 |             1.71 | | q1 | aaaaa           | String accepted in 6               |
+|                |              |          |         |                  |                  | a | q1 | aaaa          | transitions on the accepting path. |
+|                |              |          |         |                  |                  | aa | q1 | aaa          |                                    |
+|                |              |          |         |                  |                  | aaa | q1 | aa          |                                    |
+|                |              |          |         |                  |                  | aaaa | q1 | a          |                                    |
+|                |              |          |         |                  |                  | aaaaa | q2 | _         |                                    |
+|                |              |          |         |                  |                  | aaaa | q3 | a__        |                                    |
++----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
+| ﻿a plus         | aaaab        | reject   |       0 |                9 |             1.5  | None                   | String rejected in 0               |
+|                |              |          |         |                  |                  |                        | transitions (max depth explored).  |
++----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
+| ﻿a plus         |              | reject   |       0 |                1 |             0.5  | None                   | String rejected in 0               |
+|                |              |          |         |                  |                  |                        | transitions (max depth explored).  |
++----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
+| ﻿a plus         | a            | accept   |       2 |                3 |             1.33 | | q1 | a               | String accepted in 2               |
+|                |              |          |         |                  |                  | a | q2 | _             | transitions on the accepting path. |
+|                |              |          |         |                  |                  |  | q3 | a__            |                                    |
++----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
+| ﻿a plus         | aaaaaaaaaaaa | accept   |      13 |               25 |             1.86 | | q1 | aaaaaaaaaaaa    | String accepted in 13              |
+|                |              |          |         |                  |                  | a | q1 | aaaaaaaaaaa   | transitions on the accepting path. |
+|                |              |          |         |                  |                  | aa | q1 | aaaaaaaaaa   |                                    |
+|                |              |          |         |                  |                  | aaa | q1 | aaaaaaaaa   |                                    |
+|                |              |          |         |                  |                  | aaaa | q1 | aaaaaaaa   |                                    |
+|                |              |          |         |                  |                  | aaaaa | q1 | aaaaaaa   |                                    |
+|                |              |          |         |                  |                  | aaaaaa | q1 | aaaaaa   |                                    |
+|                |              |          |         |                  |                  | aaaaaaa | q1 | aaaaa   |                                    |
+|                |              |          |         |                  |                  | aaaaaaaa | q1 | aaaa   |                                    |
+|                |              |          |         |                  |                  | aaaaaaaaa | q1 | aaa   |                                    |
+|                |              |          |         |                  |                  | aaaaaaaaaa | q1 | aa   |                                    |
+|                |              |          |         |                  |                  | aaaaaaaaaaa | q1 | a   |                                    |
+|                |              |          |         |                  |                  | aaaaaaaaaaaa | q2 | _  |                                    |
+|                |              |          |         |                  |                  | aaaaaaaaaaa | q3 | a__ |                                    |
++----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
