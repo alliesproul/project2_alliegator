@@ -1,38 +1,49 @@
 Simulation Results:
 
-+----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
-| Machine Name   | String       | Result   |   Depth |   Configurations |   Nondeterminism | Acceptance Path        | Execution Summary                  |
-+================+==============+==========+=========+==================+==================+========================+====================================+
-| ﻿a plus         | aaaaa        | accept   |       6 |               11 |             1.71 | | q1 | aaaaa           | String accepted in 6               |
-|                |              |          |         |                  |                  | a | q1 | aaaa          | transitions on the accepting path. |
-|                |              |          |         |                  |                  | aa | q1 | aaa          |                                    |
-|                |              |          |         |                  |                  | aaa | q1 | aa          |                                    |
-|                |              |          |         |                  |                  | aaaa | q1 | a          |                                    |
-|                |              |          |         |                  |                  | aaaaa | q2 | _         |                                    |
-|                |              |          |         |                  |                  | aaaa | q3 | a__        |                                    |
-+----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
-| ﻿a plus         | aaaab        | reject   |       0 |                9 |             1.5  | None                   | String rejected in 0               |
-|                |              |          |         |                  |                  |                        | transitions (max depth explored).  |
-+----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
-| ﻿a plus         |              | reject   |       0 |                1 |             0.5  | None                   | String rejected in 0               |
-|                |              |          |         |                  |                  |                        | transitions (max depth explored).  |
-+----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
-| ﻿a plus         | a            | accept   |       2 |                3 |             1.33 | | q1 | a               | String accepted in 2               |
-|                |              |          |         |                  |                  | a | q2 | _             | transitions on the accepting path. |
-|                |              |          |         |                  |                  |  | q3 | a__            |                                    |
-+----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
-| ﻿a plus         | aaaaaaaaaaaa | accept   |      13 |               25 |             1.86 | | q1 | aaaaaaaaaaaa    | String accepted in 13              |
-|                |              |          |         |                  |                  | a | q1 | aaaaaaaaaaa   | transitions on the accepting path. |
-|                |              |          |         |                  |                  | aa | q1 | aaaaaaaaaa   |                                    |
-|                |              |          |         |                  |                  | aaa | q1 | aaaaaaaaa   |                                    |
-|                |              |          |         |                  |                  | aaaa | q1 | aaaaaaaa   |                                    |
-|                |              |          |         |                  |                  | aaaaa | q1 | aaaaaaa   |                                    |
-|                |              |          |         |                  |                  | aaaaaa | q1 | aaaaaa   |                                    |
-|                |              |          |         |                  |                  | aaaaaaa | q1 | aaaaa   |                                    |
-|                |              |          |         |                  |                  | aaaaaaaa | q1 | aaaa   |                                    |
-|                |              |          |         |                  |                  | aaaaaaaaa | q1 | aaa   |                                    |
-|                |              |          |         |                  |                  | aaaaaaaaaa | q1 | aa   |                                    |
-|                |              |          |         |                  |                  | aaaaaaaaaaa | q1 | a   |                                    |
-|                |              |          |         |                  |                  | aaaaaaaaaaaa | q2 | _  |                                    |
-|                |              |          |         |                  |                  | aaaaaaaaaaa | q3 | a__ |                                    |
-+----------------+--------------+----------+---------+------------------+------------------+------------------------+------------------------------------+
++----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
+| Machine Name   | String    | Result   |   Depth |   Configurations |   Nondeterminism | Acceptance Path     | Execution Summary      | Comment                   |
++================+===========+==========+=========+==================+==================+=====================+========================+===========================+
+| ﻿a plus         | aaaaaaaaa | accept   |      10 |               19 |             1.82 | | q1 | aaaaaaaaa    | String accepted in 10  | string chosen to display  |
+|                |           |          |         |                  |                  | a | q1 | aaaaaaaa   | transitions            | different degree of       |
+|                |           |          |         |                  |                  | aa | q1 | aaaaaaa   | on the accepting path. | non-determinism and as a  |
+|                |           |          |         |                  |                  | aaa | q1 | aaaaaa   |                        | sanity check to ensure    |
+|                |           |          |         |                  |                  | aaaa | q1 | aaaaa   |                        | machine works             |
+|                |           |          |         |                  |                  | aaaaa | q1 | aaaa   |                        |                           |
+|                |           |          |         |                  |                  | aaaaaa | q1 | aaa   |                        |                           |
+|                |           |          |         |                  |                  | aaaaaaa | q1 | aa   |                        |                           |
+|                |           |          |         |                  |                  | aaaaaaaa | q1 | a   |                        |                           |
+|                |           |          |         |                  |                  | aaaaaaaaa | q2 | _  |                        |                           |
+|                |           |          |         |                  |                  | aaaaaaaa | q3 | a__ |                        |                           |
++----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
+| ﻿a plus         | a         | accept   |       2 |                3 |             1.33 | | q1 | a            | String accepted in 2   | string chosen to display  |
+|                |           |          |         |                  |                  | a | q2 | _          | transitions            | different degree of       |
+|                |           |          |         |                  |                  |  | q3 | a__         | on the accepting path. | non-determinism and as a  |
+|                |           |          |         |                  |                  |                     |                        | sanity check to ensure    |
+|                |           |          |         |                  |                  |                     |                        | machine works             |
++----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
+| ﻿a plus         | b         | reject   |       0 |                1 |             0.5  | None                | String rejected in 0   | string chosen to display  |
+|                |           |          |         |                  |                  |                     | transitions            | different degree of       |
+|                |           |          |         |                  |                  |                     | (max depth explored).  | non-determinism and as a  |
+|                |           |          |         |                  |                  |                     |                        | sanity check to ensure    |
+|                |           |          |         |                  |                  |                     |                        | machine works             |
++----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
+| ﻿a plus         | aaaaa     | accept   |       6 |               11 |             1.71 | | q1 | aaaaa        | String accepted in 6   | string chosen to display  |
+|                |           |          |         |                  |                  | a | q1 | aaaa       | transitions            | different degree of       |
+|                |           |          |         |                  |                  | aa | q1 | aaa       | on the accepting path. | non-determinism and as a  |
+|                |           |          |         |                  |                  | aaa | q1 | aa       |                        | sanity check to ensure    |
+|                |           |          |         |                  |                  | aaaa | q1 | a       |                        | machine works             |
+|                |           |          |         |                  |                  | aaaaa | q2 | _      |                        |                           |
+|                |           |          |         |                  |                  | aaaa | q3 | a__     |                        |                           |
++----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
+| ﻿a plus         | bbbb      | reject   |       0 |                1 |             0.5  | None                | String rejected in 0   | string chosen to display  |
+|                |           |          |         |                  |                  |                     | transitions            | different degree of       |
+|                |           |          |         |                  |                  |                     | (max depth explored).  | non-determinism and as a  |
+|                |           |          |         |                  |                  |                     |                        | sanity check to ensure    |
+|                |           |          |         |                  |                  |                     |                        | machine works             |
++----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
+| ﻿a plus         | aaabaaa   | reject   |       0 |                7 |             1.4  | None                | String rejected in 0   | string chosen to display  |
+|                |           |          |         |                  |                  |                     | transitions            | different degree of       |
+|                |           |          |         |                  |                  |                     | (max depth explored).  | non-determinism and as a  |
+|                |           |          |         |                  |                  |                     |                        | sanity check to ensure    |
+|                |           |          |         |                  |                  |                     |                        | machine works             |
++----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
