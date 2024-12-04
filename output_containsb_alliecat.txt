@@ -1,32 +1,37 @@
 Simulation Results:
 
-+----------------------+-----------+----------+---------+------------------+------------------+-------------------------+------------------------------------+
-| Machine Name         | String    | Result   |   Depth |   Configurations |   Nondeterminism | Acceptance Path         | Execution Summary                  |
-+======================+===========+==========+=========+==================+==================+=========================+====================================+
-| ﻿Contains 'b' Machine | bbbbbb    | accept   |       1 |                1 |             1    | | q1 | bbbbbb           | String accepted in 1               |
-|                      |           |          |         |                  |                  | b | qaccept | bbbbb     | transitions on the accepting path. |
-+----------------------+-----------+----------+---------+------------------+------------------+-------------------------+------------------------------------+
-| ﻿Contains 'b' Machine | ababab    | accept   |       2 |                2 |             1    | | q1 | ababab           | String accepted in 2               |
-|                      |           |          |         |                  |                  | a | q1 | babab          | transitions on the accepting path. |
-|                      |           |          |         |                  |                  | ab | qaccept | abab     |                                    |
-+----------------------+-----------+----------+---------+------------------+------------------+-------------------------+------------------------------------+
-| ﻿Contains 'b' Machine | b         | accept   |       1 |                1 |             1    | | q1 | b                | String accepted in 1               |
-|                      |           |          |         |                  |                  | b | qaccept | _         | transitions on the accepting path. |
-+----------------------+-----------+----------+---------+------------------+------------------+-------------------------+------------------------------------+
-| ﻿Contains 'b' Machine |           | reject   |       0 |                2 |             0.67 | None                    | String rejected in 0               |
-|                      |           |          |         |                  |                  |                         | transitions (max depth explored).  |
-+----------------------+-----------+----------+---------+------------------+------------------+-------------------------+------------------------------------+
-| ﻿Contains 'b' Machine | aaaaaaaab | accept   |       9 |                9 |             1    | | q1 | aaaaaaaab        | String accepted in 9               |
-|                      |           |          |         |                  |                  | a | q1 | aaaaaaab       | transitions on the accepting path. |
-|                      |           |          |         |                  |                  | aa | q1 | aaaaaab       |                                    |
-|                      |           |          |         |                  |                  | aaa | q1 | aaaaab       |                                    |
-|                      |           |          |         |                  |                  | aaaa | q1 | aaaab       |                                    |
-|                      |           |          |         |                  |                  | aaaaa | q1 | aaab       |                                    |
-|                      |           |          |         |                  |                  | aaaaaa | q1 | aab       |                                    |
-|                      |           |          |         |                  |                  | aaaaaaa | q1 | ab       |                                    |
-|                      |           |          |         |                  |                  | aaaaaaaa | q1 | b       |                                    |
-|                      |           |          |         |                  |                  | aaaaaaaab | qaccept | _ |                                    |
-+----------------------+-----------+----------+---------+------------------+------------------+-------------------------+------------------------------------+
-| ﻿Contains 'b' Machine | aaaaaaaaa | reject   |       0 |               11 |             0.92 | None                    | String rejected in 0               |
-|                      |           |          |         |                  |                  |                         | transitions (max depth explored).  |
-+----------------------+-----------+----------+---------+------------------+------------------+-------------------------+------------------------------------+
++----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
+| Machine Name   | String   | Result   |   Depth |   Configuration |   Nondeterminism | Acceptance Path      | Execution Summary      | Comment                   |
++================+==========+==========+=========+=================+==================+======================+========================+===========================+
+| Contains b     | bbbbbb   | accept   |       1 |               1 |             1    | | q1 | bbbbbb        | String accepted in 1   | string chosen to display  |
+|                |          |          |         |                 |                  | b | qaccept | bbbbb  | transitions            | different degree of       |
+|                |          |          |         |                 |                  |                      | on the accepting path. | non-determinism and as a  |
+|                |          |          |         |                 |                  |                      |                        | sanity check to ensure    |
+|                |          |          |         |                 |                  |                      |                        | machine works             |
++----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
+| Contains b     | ababab   | accept   |       2 |               2 |             1    | | q1 | ababab        | String accepted in 2   | string chosen to display  |
+|                |          |          |         |                 |                  | a | q1 | babab       | transitions            | different degree of       |
+|                |          |          |         |                 |                  | ab | qaccept | abab  | on the accepting path. | non-determinism and as a  |
+|                |          |          |         |                 |                  |                      |                        | sanity check to ensure    |
+|                |          |          |         |                 |                  |                      |                        | machine works             |
++----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
+| Contains b     | b        | accept   |       1 |               1 |             1    | | q1 | b             | String accepted in 1   | string chosen to display  |
+|                |          |          |         |                 |                  | b | qaccept | _      | transitions            | different degree of       |
+|                |          |          |         |                 |                  |                      | on the accepting path. | non-determinism and as a  |
+|                |          |          |         |                 |                  |                      |                        | sanity check to ensure    |
+|                |          |          |         |                 |                  |                      |                        | machine works             |
++----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
+| Contains b     |          | reject   |       0 |               2 |             0.67 | None                 | String rejected in 0   | string chosen to display  |
+|                |          |          |         |                 |                  |                      | transitions            | different degree of       |
+|                |          |          |         |                 |                  |                      | (max depth explored).  | non-determinism and as a  |
+|                |          |          |         |                 |                  |                      |                        | sanity check to ensure    |
+|                |          |          |         |                 |                  |                      |                        | machine works             |
++----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
+| Contains b     | aaaaab   | accept   |       6 |               6 |             1    | | q1 | aaaaab        | String accepted in 6   | string chosen to display  |
+|                |          |          |         |                 |                  | a | q1 | aaaab       | transitions            | different degree of       |
+|                |          |          |         |                 |                  | aa | q1 | aaab       | on the accepting path. | non-determinism and as a  |
+|                |          |          |         |                 |                  | aaa | q1 | aab       |                        | sanity check to ensure    |
+|                |          |          |         |                 |                  | aaaa | q1 | ab       |                        | machine works             |
+|                |          |          |         |                 |                  | aaaaa | q1 | b       |                        |                           |
+|                |          |          |         |                 |                  | aaaaab | qaccept | _ |                        |                           |
++----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
