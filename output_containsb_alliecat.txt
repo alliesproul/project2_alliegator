@@ -1,37 +1,74 @@
 Simulation Results:
 
-+----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
-| Machine Name   | String   | Result   |   Depth |   Configuration |   Nondeterminism | Acceptance Path      | Execution Summary      | Comment                   |
-+================+==========+==========+=========+=================+==================+======================+========================+===========================+
-| Contains b     | bbbbbb   | accept   |       1 |               1 |             1    | | q1 | bbbbbb        | String accepted in 1   | string chosen to display  |
-|                |          |          |         |                 |                  | b | qaccept | bbbbb  | transitions            | different degree of       |
-|                |          |          |         |                 |                  |                      | on the accepting path. | non-determinism and as a  |
-|                |          |          |         |                 |                  |                      |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  |                      |                        | machine works             |
-+----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
-| Contains b     | ababab   | accept   |       2 |               2 |             1    | | q1 | ababab        | String accepted in 2   | string chosen to display  |
-|                |          |          |         |                 |                  | a | q1 | babab       | transitions            | different degree of       |
-|                |          |          |         |                 |                  | ab | qaccept | abab  | on the accepting path. | non-determinism and as a  |
-|                |          |          |         |                 |                  |                      |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  |                      |                        | machine works             |
-+----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
-| Contains b     | b        | accept   |       1 |               1 |             1    | | q1 | b             | String accepted in 1   | string chosen to display  |
-|                |          |          |         |                 |                  | b | qaccept | _      | transitions            | different degree of       |
-|                |          |          |         |                 |                  |                      | on the accepting path. | non-determinism and as a  |
-|                |          |          |         |                 |                  |                      |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  |                      |                        | machine works             |
-+----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
-| Contains b     |          | reject   |       0 |               2 |             0.67 | None                 | String rejected in 0   | string chosen to display  |
-|                |          |          |         |                 |                  |                      | transitions            | different degree of       |
-|                |          |          |         |                 |                  |                      | (max depth explored).  | non-determinism and as a  |
-|                |          |          |         |                 |                  |                      |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  |                      |                        | machine works             |
-+----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
-| Contains b     | aaaaab   | accept   |       6 |               6 |             1    | | q1 | aaaaab        | String accepted in 6   | string chosen to display  |
-|                |          |          |         |                 |                  | a | q1 | aaaab       | transitions            | different degree of       |
-|                |          |          |         |                 |                  | aa | q1 | aaab       | on the accepting path. | non-determinism and as a  |
-|                |          |          |         |                 |                  | aaa | q1 | aab       |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  | aaaa | q1 | ab       |                        | machine works             |
-|                |          |          |         |                 |                  | aaaaa | q1 | b       |                        |                           |
-|                |          |          |         |                 |                  | aaaaab | qaccept | _ |                        |                           |
-+----------------+----------+----------+---------+-----------------+------------------+----------------------+------------------------+---------------------------+
++----------------------+----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| NTM                  | String   | Result   |   Depth |   Configurations |   Avg Non-Det | All Paths           | Execution Summary      | Comment              |
++======================+==========+==========+=========+==================+===============+=====================+========================+======================+
+| ﻿Contains 'b' Machine | bbbbbb   | accept   |       1 |                1 |          1    | | q1 | bbbbbb       | String accepted in     | string chosen to     |
+|                      |          |          |         |                  |               |                     | 1 transitions          | display different    |
+|                      |          |          |         |                  |               |  | q1 | bbbbbb      | on the accepting path. | degree of            |
+|                      |          |          |         |                  |               | b | qaccept | bbbbb |                        | non-determinism and  |
+|                      |          |          |         |                  |               |                     |                        | as a sanity          |
+|                      |          |          |         |                  |               |                     |                        | check to ensure      |
+|                      |          |          |         |                  |               |                     |                        | machine works        |
++----------------------+----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿Contains 'b' Machine | ababab   | accept   |       2 |                2 |          1    | | q1 | ababab       | String accepted in     | string chosen to     |
+|                      |          |          |         |                  |               |                     | 2 transitions          | display different    |
+|                      |          |          |         |                  |               |  | q1 | ababab      | on the accepting path. | degree of            |
+|                      |          |          |         |                  |               | a | q1 | babab      |                        | non-determinism and  |
+|                      |          |          |         |                  |               |                     |                        | as a sanity          |
+|                      |          |          |         |                  |               |  | q1 | ababab      |                        | check to ensure      |
+|                      |          |          |         |                  |               | a | q1 | babab      |                        | machine works        |
+|                      |          |          |         |                  |               | ab | qaccept | abab |                        |                      |
++----------------------+----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿Contains 'b' Machine | b        | accept   |       1 |                1 |          1    | | q1 | b            | String accepted in     | string chosen to     |
+|                      |          |          |         |                  |               |                     | 1 transitions          | display different    |
+|                      |          |          |         |                  |               |  | q1 | b           | on the accepting path. | degree of            |
+|                      |          |          |         |                  |               | b | qaccept | _     |                        | non-determinism and  |
+|                      |          |          |         |                  |               |                     |                        | as a sanity          |
+|                      |          |          |         |                  |               |                     |                        | check to ensure      |
+|                      |          |          |         |                  |               |                     |                        | machine works        |
++----------------------+----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿Contains 'b' Machine |          | reject   |       1 |                2 |          0.67 | | q1 |              | String rejected in     | string chosen to     |
+|                      |          |          |         |                  |               |                     | 1 transitions          | display different    |
+|                      |          |          |         |                  |               |  | q1 |             | (max depth explored).  | degree of            |
+|                      |          |          |         |                  |               | _ | qreject | _     |                        | non-determinism and  |
+|                      |          |          |         |                  |               |                     |                        | as a sanity          |
+|                      |          |          |         |                  |               |                     |                        | check to ensure      |
+|                      |          |          |         |                  |               |                     |                        | machine works        |
++----------------------+----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿Contains 'b' Machine | aaaab    | accept   |       5 |                5 |          1    | | q1 | aaaab        | String accepted in     | string chosen to     |
+|                      |          |          |         |                  |               |                     | 5 transitions          | display different    |
+|                      |          |          |         |                  |               |  | q1 | aaaab       | on the accepting path. | degree of            |
+|                      |          |          |         |                  |               | a | q1 | aaab       |                        | non-determinism and  |
+|                      |          |          |         |                  |               |                     |                        | as a sanity          |
+|                      |          |          |         |                  |               |  | q1 | aaaab       |                        | check to ensure      |
+|                      |          |          |         |                  |               | a | q1 | aaab       |                        | machine works        |
+|                      |          |          |         |                  |               | aa | q1 | aab       |                        |                      |
+|                      |          |          |         |                  |               |                     |                        |                      |
+|                      |          |          |         |                  |               |  | q1 | aaaab       |                        |                      |
+|                      |          |          |         |                  |               | a | q1 | aaab       |                        |                      |
+|                      |          |          |         |                  |               | aa | q1 | aab       |                        |                      |
+|                      |          |          |         |                  |               | aaa | q1 | ab       |                        |                      |
+|                      |          |          |         |                  |               |                     |                        |                      |
+|                      |          |          |         |                  |               |  | q1 | aaaab       |                        |                      |
+|                      |          |          |         |                  |               | a | q1 | aaab       |                        |                      |
+|                      |          |          |         |                  |               | aa | q1 | aab       |                        |                      |
+|                      |          |          |         |                  |               | aaa | q1 | ab       |                        |                      |
+|                      |          |          |         |                  |               | aaaa | q1 | b       |                        |                      |
+|                      |          |          |         |                  |               |                     |                        |                      |
+|                      |          |          |         |                  |               |  | q1 | aaaab       |                        |                      |
+|                      |          |          |         |                  |               | a | q1 | aaab       |                        |                      |
+|                      |          |          |         |                  |               | aa | q1 | aab       |                        |                      |
+|                      |          |          |         |                  |               | aaa | q1 | ab       |                        |                      |
+|                      |          |          |         |                  |               | aaaa | q1 | b       |                        |                      |
+|                      |          |          |         |                  |               | aaaab | qaccept | _ |                        |                      |
++----------------------+----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿Contains 'b' Machine | a        | reject   |       2 |                3 |          0.75 | | q1 | a            | String rejected in     | string chosen to     |
+|                      |          |          |         |                  |               |                     | 2 transitions          | display different    |
+|                      |          |          |         |                  |               |  | q1 | a           | (max depth explored).  | degree of            |
+|                      |          |          |         |                  |               | a | q1 | _          |                        | non-determinism and  |
+|                      |          |          |         |                  |               |                     |                        | as a sanity          |
+|                      |          |          |         |                  |               |  | q1 | a           |                        | check to ensure      |
+|                      |          |          |         |                  |               | a | q1 | _          |                        | machine works        |
+|                      |          |          |         |                  |               | a_ | qreject | _    |                        |                      |
++----------------------+----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
