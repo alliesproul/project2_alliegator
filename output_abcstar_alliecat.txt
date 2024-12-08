@@ -23,26 +23,6 @@ Simulation Results:
 |          |          |          |         |                  |               | abc | q2 | _          |                        |                      |
 |          |          |          |         |                  |               | abc_ | qaccept | _    |                        |                      |
 +----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
-| ﻿abc star | abca     | reject   |       4 |                5 |          0.83 | | q0 | abca           | String rejected in     | string chosen to     |
-|          |          |          |         |                  |               |                       | 4 transitions          | display different    |
-|          |          |          |         |                  |               |  | q0 | abca          | (max depth explored).  | degree of            |
-|          |          |          |         |                  |               | a | q0 | bca          |                        | non-determinism and  |
-|          |          |          |         |                  |               |                       |                        | as a sanity          |
-|          |          |          |         |                  |               |  | q0 | abca          |                        | check to ensure      |
-|          |          |          |         |                  |               | a | q0 | bca          |                        | machine works        |
-|          |          |          |         |                  |               | ab | q1 | ca          |                        |                      |
-|          |          |          |         |                  |               |                       |                        |                      |
-|          |          |          |         |                  |               |  | q0 | abca          |                        |                      |
-|          |          |          |         |                  |               | a | q0 | bca          |                        |                      |
-|          |          |          |         |                  |               | ab | q1 | ca          |                        |                      |
-|          |          |          |         |                  |               | abc | q2 | a          |                        |                      |
-|          |          |          |         |                  |               |                       |                        |                      |
-|          |          |          |         |                  |               |  | q0 | abca          |                        |                      |
-|          |          |          |         |                  |               | a | q0 | bca          |                        |                      |
-|          |          |          |         |                  |               | ab | q1 | ca          |                        |                      |
-|          |          |          |         |                  |               | abc | q2 | a          |                        |                      |
-|          |          |          |         |                  |               | abc_ | qreject | _    |                        |                      |
-+----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
 | ﻿abc star | a        | accept   |       2 |                2 |          1    | | q0 | a              | String accepted in     | string chosen to     |
 |          |          |          |         |                  |               |                       | 2 transitions          | display different    |
 |          |          |          |         |                  |               |  | q0 | a             | on the accepting path. | degree of            |
@@ -112,4 +92,24 @@ Simulation Results:
 |          |          |          |         |                  |               | aabbc | q2 | c        |                        |                      |
 |          |          |          |         |                  |               | aabbcc | q2 | _       |                        |                      |
 |          |          |          |         |                  |               | aabbcc_ | qaccept | _ |                        |                      |
++----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
+| ﻿abc star | abca     | reject   |       4 |                5 |          0.83 | | q0 | abca           | String rejected in     | string chosen to     |
+|          |          |          |         |                  |               |                       | 4 transitions          | display different    |
+|          |          |          |         |                  |               |  | q0 | abca          | (max depth explored).  | degree of            |
+|          |          |          |         |                  |               | a | q0 | bca          |                        | non-determinism and  |
+|          |          |          |         |                  |               |                       |                        | as a sanity          |
+|          |          |          |         |                  |               |  | q0 | abca          |                        | check to ensure      |
+|          |          |          |         |                  |               | a | q0 | bca          |                        | machine works        |
+|          |          |          |         |                  |               | ab | q1 | ca          |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | abca          |                        |                      |
+|          |          |          |         |                  |               | a | q0 | bca          |                        |                      |
+|          |          |          |         |                  |               | ab | q1 | ca          |                        |                      |
+|          |          |          |         |                  |               | abc | q2 | a          |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | abca          |                        |                      |
+|          |          |          |         |                  |               | a | q0 | bca          |                        |                      |
+|          |          |          |         |                  |               | ab | q1 | ca          |                        |                      |
+|          |          |          |         |                  |               | abc | q2 | a          |                        |                      |
+|          |          |          |         |                  |               | abc_ | qreject | _    |                        |                      |
 +----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
