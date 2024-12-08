@@ -1,49 +1,266 @@
 Simulation Results:
 
-+----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
-| Machine Name   | String    | Result   |   Depth |   Configurations |   Nondeterminism | Acceptance Path     | Execution Summary      | Comment                   |
-+================+===========+==========+=========+==================+==================+=====================+========================+===========================+
-| ﻿a plus         | aaaaaaaaa | accept   |      10 |               19 |             1.82 | | q1 | aaaaaaaaa    | String accepted in 10  | string chosen to display  |
-|                |           |          |         |                  |                  | a | q1 | aaaaaaaa   | transitions            | different degree of       |
-|                |           |          |         |                  |                  | aa | q1 | aaaaaaa   | on the accepting path. | non-determinism and as a  |
-|                |           |          |         |                  |                  | aaa | q1 | aaaaaa   |                        | sanity check to ensure    |
-|                |           |          |         |                  |                  | aaaa | q1 | aaaaa   |                        | machine works             |
-|                |           |          |         |                  |                  | aaaaa | q1 | aaaa   |                        |                           |
-|                |           |          |         |                  |                  | aaaaaa | q1 | aaa   |                        |                           |
-|                |           |          |         |                  |                  | aaaaaaa | q1 | aa   |                        |                           |
-|                |           |          |         |                  |                  | aaaaaaaa | q1 | a   |                        |                           |
-|                |           |          |         |                  |                  | aaaaaaaaa | q2 | _  |                        |                           |
-|                |           |          |         |                  |                  | aaaaaaaa | q3 | a__ |                        |                           |
-+----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
-| ﻿a plus         | a         | accept   |       2 |                3 |             1.33 | | q1 | a            | String accepted in 2   | string chosen to display  |
-|                |           |          |         |                  |                  | a | q2 | _          | transitions            | different degree of       |
-|                |           |          |         |                  |                  |  | q3 | a__         | on the accepting path. | non-determinism and as a  |
-|                |           |          |         |                  |                  |                     |                        | sanity check to ensure    |
-|                |           |          |         |                  |                  |                     |                        | machine works             |
-+----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
-| ﻿a plus         | b         | reject   |       0 |                1 |             0.5  | None                | String rejected in 0   | string chosen to display  |
-|                |           |          |         |                  |                  |                     | transitions            | different degree of       |
-|                |           |          |         |                  |                  |                     | (max depth explored).  | non-determinism and as a  |
-|                |           |          |         |                  |                  |                     |                        | sanity check to ensure    |
-|                |           |          |         |                  |                  |                     |                        | machine works             |
-+----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
-| ﻿a plus         | aaaaa     | accept   |       6 |               11 |             1.71 | | q1 | aaaaa        | String accepted in 6   | string chosen to display  |
-|                |           |          |         |                  |                  | a | q1 | aaaa       | transitions            | different degree of       |
-|                |           |          |         |                  |                  | aa | q1 | aaa       | on the accepting path. | non-determinism and as a  |
-|                |           |          |         |                  |                  | aaa | q1 | aa       |                        | sanity check to ensure    |
-|                |           |          |         |                  |                  | aaaa | q1 | a       |                        | machine works             |
-|                |           |          |         |                  |                  | aaaaa | q2 | _      |                        |                           |
-|                |           |          |         |                  |                  | aaaa | q3 | a__     |                        |                           |
-+----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
-| ﻿a plus         | bbbb      | reject   |       0 |                1 |             0.5  | None                | String rejected in 0   | string chosen to display  |
-|                |           |          |         |                  |                  |                     | transitions            | different degree of       |
-|                |           |          |         |                  |                  |                     | (max depth explored).  | non-determinism and as a  |
-|                |           |          |         |                  |                  |                     |                        | sanity check to ensure    |
-|                |           |          |         |                  |                  |                     |                        | machine works             |
-+----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
-| ﻿a plus         | aaabaaa   | reject   |       0 |                7 |             1.4  | None                | String rejected in 0   | string chosen to display  |
-|                |           |          |         |                  |                  |                     | transitions            | different degree of       |
-|                |           |          |         |                  |                  |                     | (max depth explored).  | non-determinism and as a  |
-|                |           |          |         |                  |                  |                     |                        | sanity check to ensure    |
-|                |           |          |         |                  |                  |                     |                        | machine works             |
-+----------------+-----------+----------+---------+------------------+------------------+---------------------+------------------------+---------------------------+
++--------+-----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| NTM    | String    | Result   |   Depth |   Configurations |   Avg Non-Det | All Paths           | Execution Summary      | Comment              |
++========+===========+==========+=========+==================+===============+=====================+========================+======================+
+| ﻿a plus | aaaaaaaaa | accept   |      19 |               19 |          1.82 | | q1 | aaaaaaaaa    | String accepted in     | string chosen to     |
+|        |           |          |         |                  |               |                     | 19 transitions         | display different    |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   | on the accepting path. | degree of            |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        | non-determinism and  |
+|        |           |          |         |                  |               |                     |                        | as a sanity          |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        | check to ensure      |
+|        |           |          |         |                  |               | a | q2 | aaaaaaaa   |                        | machine works        |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q2 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q2 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q2 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q2 | aaaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q1 | aaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q2 | aaa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q1 | aaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaa | q1 | aa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q1 | aaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaa | q2 | aa   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q1 | aaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaa | q1 | aa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaaa | q1 | a   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q1 | aaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaa | q1 | aa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaaa | q2 | a   |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q1 | aaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaa | q1 | aa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaaa | q1 | a   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaaaa | q1 | _  |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q1 | aaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaa | q1 | aa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaaa | q1 | a   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaaaa | q2 | _  |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aaaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | aaaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q1 | aaa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaa | q1 | aa   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaaa | q1 | a   |                        |                      |
+|        |           |          |         |                  |               | aaaaaaaaa | q2 | _  |                        |                      |
+|        |           |          |         |                  |               | aaaaaaaa | q3 | a__ |                        |                      |
++--------+-----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿a plus | a         | accept   |       3 |                3 |          1.33 | | q1 | a            | String accepted in     | string chosen to     |
+|        |           |          |         |                  |               |                     | 3 transitions          | display different    |
+|        |           |          |         |                  |               |  | q1 | a           | on the accepting path. | degree of            |
+|        |           |          |         |                  |               | a | q1 | _          |                        | non-determinism and  |
+|        |           |          |         |                  |               |                     |                        | as a sanity          |
+|        |           |          |         |                  |               |  | q1 | a           |                        | check to ensure      |
+|        |           |          |         |                  |               | a | q2 | _          |                        | machine works        |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | a           |                        |                      |
+|        |           |          |         |                  |               | a | q2 | _          |                        |                      |
+|        |           |          |         |                  |               |  | q3 | a__         |                        |                      |
++--------+-----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿a plus | b         | reject   |       0 |                1 |          0.5  | | q1 | b            | String rejected in     | string chosen to     |
+|        |           |          |         |                  |               |                     | 0 transitions          | display different    |
+|        |           |          |         |                  |               |                     | (max depth explored).  | degree of            |
+|        |           |          |         |                  |               |                     |                        | non-determinism and  |
+|        |           |          |         |                  |               |                     |                        | as a sanity          |
+|        |           |          |         |                  |               |                     |                        | check to ensure      |
+|        |           |          |         |                  |               |                     |                        | machine works        |
++--------+-----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿a plus | aaaaaa    | accept   |      13 |               13 |          1.75 | | q1 | aaaaaa       | String accepted in     | string chosen to     |
+|        |           |          |         |                  |               |                     | 13 transitions         | display different    |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      | on the accepting path. | degree of            |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        | non-determinism and  |
+|        |           |          |         |                  |               |                     |                        | as a sanity          |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        | check to ensure      |
+|        |           |          |         |                  |               | a | q2 | aaaaa      |                        | machine works        |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q2 | aaaa      |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaa      |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               | aaa | q2 | aaa      |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaa      |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aa      |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaa      |                        |                      |
+|        |           |          |         |                  |               | aaaa | q2 | aa      |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaa      |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aa      |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | a      |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaa      |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aa      |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q2 | a      |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaa      |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aa      |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | a      |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q1 | _     |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaa      |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aa      |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | a      |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q2 | _     |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aaaaaa      |                        |                      |
+|        |           |          |         |                  |               | a | q1 | aaaaa      |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | aaaa      |                        |                      |
+|        |           |          |         |                  |               | aaa | q1 | aaa      |                        |                      |
+|        |           |          |         |                  |               | aaaa | q1 | aa      |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q1 | a      |                        |                      |
+|        |           |          |         |                  |               | aaaaaa | q2 | _     |                        |                      |
+|        |           |          |         |                  |               | aaaaa | q3 | a__    |                        |                      |
++--------+-----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿a plus | bbb       | reject   |       0 |                1 |          0.5  | | q1 | bbb          | String rejected in     | string chosen to     |
+|        |           |          |         |                  |               |                     | 0 transitions          | display different    |
+|        |           |          |         |                  |               |                     | (max depth explored).  | degree of            |
+|        |           |          |         |                  |               |                     |                        | non-determinism and  |
+|        |           |          |         |                  |               |                     |                        | as a sanity          |
+|        |           |          |         |                  |               |                     |                        | check to ensure      |
+|        |           |          |         |                  |               |                     |                        | machine works        |
++--------+-----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
+| ﻿a plus | aabaa     | reject   |       4 |                5 |          1.25 | | q1 | aabaa        | String rejected in     | string chosen to     |
+|        |           |          |         |                  |               |                     | 4 transitions          | display different    |
+|        |           |          |         |                  |               |  | q1 | aabaa       | (max depth explored).  | degree of            |
+|        |           |          |         |                  |               | a | q1 | abaa       |                        | non-determinism and  |
+|        |           |          |         |                  |               |                     |                        | as a sanity          |
+|        |           |          |         |                  |               |  | q1 | aabaa       |                        | check to ensure      |
+|        |           |          |         |                  |               | a | q2 | abaa       |                        | machine works        |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aabaa       |                        |                      |
+|        |           |          |         |                  |               | a | q1 | abaa       |                        |                      |
+|        |           |          |         |                  |               | aa | q1 | baa       |                        |                      |
+|        |           |          |         |                  |               |                     |                        |                      |
+|        |           |          |         |                  |               |  | q1 | aabaa       |                        |                      |
+|        |           |          |         |                  |               | a | q1 | abaa       |                        |                      |
+|        |           |          |         |                  |               | aa | q2 | baa       |                        |                      |
++--------+-----------+----------+---------+------------------+---------------+---------------------+------------------------+----------------------+
