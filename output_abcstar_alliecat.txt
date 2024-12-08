@@ -1,44 +1,115 @@
 Simulation Results:
 
-+----------------+----------+----------+---------+-----------------+------------------+-----------------------+------------------------+---------------------------+
-| Machine Name   | String   | Result   |   Depth |   Configuration |   Nondeterminism | Acceptance Path       | Execution Summary      | Comment                   |
-+================+==========+==========+=========+=================+==================+=======================+========================+===========================+
-| ﻿abc star       | abc      | accept   |       4 |               4 |             1    | | q0 | abc            | String accepted in 4   | string chosen to display  |
-|                |          |          |         |                 |                  | a | q0 | bc           | transitions            | different degree of       |
-|                |          |          |         |                 |                  | ab | q1 | c           | on the accepting path. | non-determinism and as a  |
-|                |          |          |         |                 |                  | abc | q2 | _          |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  | abc_ | qaccept | _    |                        | machine works             |
-+----------------+----------+----------+---------+-----------------+------------------+-----------------------+------------------------+---------------------------+
-| ﻿abc star       | abca     | reject   |       0 |               5 |             0.83 | None                  | String rejected in 0   | string chosen to display  |
-|                |          |          |         |                 |                  |                       | transitions            | different degree of       |
-|                |          |          |         |                 |                  |                       | (max depth explored).  | non-determinism and as a  |
-|                |          |          |         |                 |                  |                       |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  |                       |                        | machine works             |
-+----------------+----------+----------+---------+-----------------+------------------+-----------------------+------------------------+---------------------------+
-| ﻿abc star       | a        | accept   |       2 |               2 |             1    | | q0 | a              | String accepted in 2   | string chosen to display  |
-|                |          |          |         |                 |                  | a | q0 | _            | transitions            | different degree of       |
-|                |          |          |         |                 |                  | a_ | qaccept | _      | on the accepting path. | non-determinism and as a  |
-|                |          |          |         |                 |                  |                       |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  |                       |                        | machine works             |
-+----------------+----------+----------+---------+-----------------+------------------+-----------------------+------------------------+---------------------------+
-| ﻿abc star       | b        | accept   |       2 |               2 |             1    | | q0 | b              | String accepted in 2   | string chosen to display  |
-|                |          |          |         |                 |                  | b | q1 | _            | transitions            | different degree of       |
-|                |          |          |         |                 |                  | b_ | qaccept | _      | on the accepting path. | non-determinism and as a  |
-|                |          |          |         |                 |                  |                       |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  |                       |                        | machine works             |
-+----------------+----------+----------+---------+-----------------+------------------+-----------------------+------------------------+---------------------------+
-| ﻿abc star       | c        | reject   |       0 |               2 |             0.67 | None                  | String rejected in 0   | string chosen to display  |
-|                |          |          |         |                 |                  |                       | transitions            | different degree of       |
-|                |          |          |         |                 |                  |                       | (max depth explored).  | non-determinism and as a  |
-|                |          |          |         |                 |                  |                       |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  |                       |                        | machine works             |
-+----------------+----------+----------+---------+-----------------+------------------+-----------------------+------------------------+---------------------------+
-| ﻿abc star       | aabbcc   | accept   |       7 |               7 |             1    | | q0 | aabbcc         | String accepted in 7   | string chosen to display  |
-|                |          |          |         |                 |                  | a | q0 | abbcc        | transitions            | different degree of       |
-|                |          |          |         |                 |                  | aa | q0 | bbcc        | on the accepting path. | non-determinism and as a  |
-|                |          |          |         |                 |                  | aab | q1 | bcc        |                        | sanity check to ensure    |
-|                |          |          |         |                 |                  | aabb | q1 | cc        |                        | machine works             |
-|                |          |          |         |                 |                  | aabbc | q2 | c        |                        |                           |
-|                |          |          |         |                 |                  | aabbcc | q2 | _       |                        |                           |
-|                |          |          |         |                 |                  | aabbcc_ | qaccept | _ |                        |                           |
-+----------------+----------+----------+---------+-----------------+------------------+-----------------------+------------------------+---------------------------+
++----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
+| NTM      | String   | Result   |   Depth |   Configurations |   Avg Non-Det | All Paths             | Execution Summary      | Comment              |
++==========+==========+==========+=========+==================+===============+=======================+========================+======================+
+| ﻿abc star | abc      | accept   |       4 |                4 |          1    | | q0 | abc            | String accepted in     | string chosen to     |
+|          |          |          |         |                  |               |                       | 4 transitions          | display different    |
+|          |          |          |         |                  |               |  | q0 | abc           | on the accepting path. | degree of            |
+|          |          |          |         |                  |               | a | q0 | bc           |                        | non-determinism and  |
+|          |          |          |         |                  |               |                       |                        | as a sanity          |
+|          |          |          |         |                  |               |  | q0 | abc           |                        | check to ensure      |
+|          |          |          |         |                  |               | a | q0 | bc           |                        | machine works        |
+|          |          |          |         |                  |               | ab | q1 | c           |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | abc           |                        |                      |
+|          |          |          |         |                  |               | a | q0 | bc           |                        |                      |
+|          |          |          |         |                  |               | ab | q1 | c           |                        |                      |
+|          |          |          |         |                  |               | abc | q2 | _          |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | abc           |                        |                      |
+|          |          |          |         |                  |               | a | q0 | bc           |                        |                      |
+|          |          |          |         |                  |               | ab | q1 | c           |                        |                      |
+|          |          |          |         |                  |               | abc | q2 | _          |                        |                      |
+|          |          |          |         |                  |               | abc_ | qaccept | _    |                        |                      |
++----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
+| ﻿abc star | abca     | reject   |       4 |                5 |          0.83 | | q0 | abca           | String rejected in     | string chosen to     |
+|          |          |          |         |                  |               |                       | 4 transitions          | display different    |
+|          |          |          |         |                  |               |  | q0 | abca          | (max depth explored).  | degree of            |
+|          |          |          |         |                  |               | a | q0 | bca          |                        | non-determinism and  |
+|          |          |          |         |                  |               |                       |                        | as a sanity          |
+|          |          |          |         |                  |               |  | q0 | abca          |                        | check to ensure      |
+|          |          |          |         |                  |               | a | q0 | bca          |                        | machine works        |
+|          |          |          |         |                  |               | ab | q1 | ca          |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | abca          |                        |                      |
+|          |          |          |         |                  |               | a | q0 | bca          |                        |                      |
+|          |          |          |         |                  |               | ab | q1 | ca          |                        |                      |
+|          |          |          |         |                  |               | abc | q2 | a          |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | abca          |                        |                      |
+|          |          |          |         |                  |               | a | q0 | bca          |                        |                      |
+|          |          |          |         |                  |               | ab | q1 | ca          |                        |                      |
+|          |          |          |         |                  |               | abc | q2 | a          |                        |                      |
+|          |          |          |         |                  |               | abc_ | qreject | _    |                        |                      |
++----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
+| ﻿abc star | a        | accept   |       2 |                2 |          1    | | q0 | a              | String accepted in     | string chosen to     |
+|          |          |          |         |                  |               |                       | 2 transitions          | display different    |
+|          |          |          |         |                  |               |  | q0 | a             | on the accepting path. | degree of            |
+|          |          |          |         |                  |               | a | q0 | _            |                        | non-determinism and  |
+|          |          |          |         |                  |               |                       |                        | as a sanity          |
+|          |          |          |         |                  |               |  | q0 | a             |                        | check to ensure      |
+|          |          |          |         |                  |               | a | q0 | _            |                        | machine works        |
+|          |          |          |         |                  |               | a_ | qaccept | _      |                        |                      |
++----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
+| ﻿abc star | b        | accept   |       2 |                2 |          1    | | q0 | b              | String accepted in     | string chosen to     |
+|          |          |          |         |                  |               |                       | 2 transitions          | display different    |
+|          |          |          |         |                  |               |  | q0 | b             | on the accepting path. | degree of            |
+|          |          |          |         |                  |               | b | q1 | _            |                        | non-determinism and  |
+|          |          |          |         |                  |               |                       |                        | as a sanity          |
+|          |          |          |         |                  |               |  | q0 | b             |                        | check to ensure      |
+|          |          |          |         |                  |               | b | q1 | _            |                        | machine works        |
+|          |          |          |         |                  |               | b_ | qaccept | _      |                        |                      |
++----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
+| ﻿abc star | c        | reject   |       1 |                2 |          0.67 | | q0 | c              | String rejected in     | string chosen to     |
+|          |          |          |         |                  |               |                       | 1 transitions          | display different    |
+|          |          |          |         |                  |               |  | q0 | c             | (max depth explored).  | degree of            |
+|          |          |          |         |                  |               | _ | qreject | _       |                        | non-determinism and  |
+|          |          |          |         |                  |               |                       |                        | as a sanity          |
+|          |          |          |         |                  |               |                       |                        | check to ensure      |
+|          |          |          |         |                  |               |                       |                        | machine works        |
++----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
+| ﻿abc star | aabbcc   | accept   |       7 |                7 |          1    | | q0 | aabbcc         | String accepted in     | string chosen to     |
+|          |          |          |         |                  |               |                       | 7 transitions          | display different    |
+|          |          |          |         |                  |               |  | q0 | aabbcc        | on the accepting path. | degree of            |
+|          |          |          |         |                  |               | a | q0 | abbcc        |                        | non-determinism and  |
+|          |          |          |         |                  |               |                       |                        | as a sanity          |
+|          |          |          |         |                  |               |  | q0 | aabbcc        |                        | check to ensure      |
+|          |          |          |         |                  |               | a | q0 | abbcc        |                        | machine works        |
+|          |          |          |         |                  |               | aa | q0 | bbcc        |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | aabbcc        |                        |                      |
+|          |          |          |         |                  |               | a | q0 | abbcc        |                        |                      |
+|          |          |          |         |                  |               | aa | q0 | bbcc        |                        |                      |
+|          |          |          |         |                  |               | aab | q1 | bcc        |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | aabbcc        |                        |                      |
+|          |          |          |         |                  |               | a | q0 | abbcc        |                        |                      |
+|          |          |          |         |                  |               | aa | q0 | bbcc        |                        |                      |
+|          |          |          |         |                  |               | aab | q1 | bcc        |                        |                      |
+|          |          |          |         |                  |               | aabb | q1 | cc        |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | aabbcc        |                        |                      |
+|          |          |          |         |                  |               | a | q0 | abbcc        |                        |                      |
+|          |          |          |         |                  |               | aa | q0 | bbcc        |                        |                      |
+|          |          |          |         |                  |               | aab | q1 | bcc        |                        |                      |
+|          |          |          |         |                  |               | aabb | q1 | cc        |                        |                      |
+|          |          |          |         |                  |               | aabbc | q2 | c        |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | aabbcc        |                        |                      |
+|          |          |          |         |                  |               | a | q0 | abbcc        |                        |                      |
+|          |          |          |         |                  |               | aa | q0 | bbcc        |                        |                      |
+|          |          |          |         |                  |               | aab | q1 | bcc        |                        |                      |
+|          |          |          |         |                  |               | aabb | q1 | cc        |                        |                      |
+|          |          |          |         |                  |               | aabbc | q2 | c        |                        |                      |
+|          |          |          |         |                  |               | aabbcc | q2 | _       |                        |                      |
+|          |          |          |         |                  |               |                       |                        |                      |
+|          |          |          |         |                  |               |  | q0 | aabbcc        |                        |                      |
+|          |          |          |         |                  |               | a | q0 | abbcc        |                        |                      |
+|          |          |          |         |                  |               | aa | q0 | bbcc        |                        |                      |
+|          |          |          |         |                  |               | aab | q1 | bcc        |                        |                      |
+|          |          |          |         |                  |               | aabb | q1 | cc        |                        |                      |
+|          |          |          |         |                  |               | aabbc | q2 | c        |                        |                      |
+|          |          |          |         |                  |               | aabbcc | q2 | _       |                        |                      |
+|          |          |          |         |                  |               | aabbcc_ | qaccept | _ |                        |                      |
++----------+----------+----------+---------+------------------+---------------+-----------------------+------------------------+----------------------+
